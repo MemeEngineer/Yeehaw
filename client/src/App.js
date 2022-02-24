@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import LoggedIn from "./LoggedIn";
-import LoggedOut from "./LoggedOut";
+// import { BrowserRouter as Router } from "react-router-dom";
+import LoggedIn from "./pages/LoggedIn";
+import LoggedOut from "./pages/LoggedOut";
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -21,10 +21,11 @@ const App = () => {
   // if (!isAuthenticated) {
   //   return <LoggedIn/>
   // }
+  // if (!currentUser) return <Login onLogin={setUser} />;
   return (
     <div className="app">
-    <h1>Welcome to Yeehaw!</h1>
-      <Router>{currentUser ? <LoggedIn setCurrentUser={setCurrentUser} currentUser={currentUser}/> : <LoggedOut  />}</Router>
+
+      {currentUser ? <LoggedIn setCurrentUser={setCurrentUser} currentUser={currentUser}/> : <LoggedOut  />}
     </div>
   );
 };

@@ -1,14 +1,14 @@
 import { NavLink } from "react-router-dom";
-import Pins from "./Pins";
+
 
 const linkStyles = {
     display: "inline-block",
     width: "50px",
     padding: "12px",
     margin: "0 6px 6px",
-    background: "black",
+    background: "Black",
     textDecoration: "none",
-    color: "white",
+    color: "White",
   };
 const Navbar = ({setCurrentUser}) => {
 
@@ -28,38 +28,37 @@ const Navbar = ({setCurrentUser}) => {
     <NavLink
         to="/pins"
         exact = "true"
-        style={linkStyles}
-        isactive={{
-          background: "red",
-        }}
+        style={({ isActive }) => ({
+          ...linkStyles,
+          background: isActive ? 'Red' : 'Black',
+        })}
+       
       >
         Pins
       </NavLink>
       <NavLink
         exact to="/map"
         exact="true"
-        style={linkStyles}
-        isactive={{
-          background: "red",
-        }}
+        // style={linkStyles}
+        style={({ isActive }) => ({
+          ...linkStyles,
+          background: isActive ? 'Red' : 'Black',
+        })}
       >
         Map
       </NavLink>
       <NavLink
         to="/"
        exact= "true"
-        style={linkStyles}
-        isactive={{
-          background: "red",
-        }}
+       style={({ isActive }) => ({
+        ...linkStyles,
+        background: isActive ? 'Red' : 'Black',
+      })}
         onClick={handleLogout}
       >
        Logout
       </NavLink>
        
-      
-     
-    
     </nav>
   );
 };
