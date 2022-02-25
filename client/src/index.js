@@ -5,10 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from "react-router-dom";
 import 'mapbox-gl/dist/mapbox-gl.css';
+import  {MapProvider} from 'react-map-gl';
 
 ReactDOM.render(
   <Router>
+    <MapProvider>
     <App />
+    </MapProvider>
     </Router>,
   document.getElementById('root')
 );
