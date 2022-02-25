@@ -11,7 +11,7 @@ const LoggedIn = ({setCurrentUser, currentUser}) => {
       <Header currentUser={currentUser}/>
       <Navbar setCurrentUser={setCurrentUser} />
     <Routes>
-    {/* <Route path="*" element={<Navigate to="/map"/>}/> */}
+    {/* <Route path="/" element={<Navigate to="/map"/>}/>  */}
     <Route  path="/pins" element={<Pins />} />
     <Route  path="/map" element={<Map />} />
     </Routes>
