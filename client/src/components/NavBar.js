@@ -24,7 +24,7 @@ const Navbar = ({setCurrentUser}) => {
       }
 
   return (
-      <nav>
+      <nav style= {{display: 'flex', justifyContent: 'center'}}>
     <NavLink
         to="/pins"
         exact = "true"
