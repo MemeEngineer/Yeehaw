@@ -1,15 +1,39 @@
 import mapboxgl from 'mapbox-gl';
-import Maps, {MapProvider,Marker} from 'react-map-gl';
-import fishicon from "./fishicon.png"
+import Maps, {MapProvider,Marker, Popup} from 'react-map-gl';
+import fishicon from "./fishicon.png";
+import birdicon from "./birdicon.png";
+import deericon from "./deericon.png";
+import biggameicon from "./biggameicon.png";
 
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoiand1NTIiLCJhIjoiY2t6eG16ajByMDE1eDJ2cGFlenliY3h4cCJ9.5EsnKD5hXlOEWUI6A5V4XQ'
 
 const Map = () => {
+ 
 
    
 return(
     <MapProvider>
+      <div style={{display: "flex", justifyContent: "center"}}>
+        
+      <button>
+      <img src={fishicon} alt="fish" style={{height: "50px", width: "50px"}}/>
+      Fish
+      </button>
+      <button>
+      <img src={birdicon} alt="bird" style={{height: "50px", width: "50px"}}/>
+      Bird
+      </button>
+      <button>
+      <img src={deericon} alt="deer" style={{height: "75px", width: "75px"}}/>
+      Deer
+      </button>
+      <button>
+      <img src={biggameicon} alt="biggame" style={{height: "50px", width: "50px"}}/>
+      Big Game
+      </button>
+      
+      </div>
 <Maps
       initialViewState={{
         longitude: -74.0060,
@@ -19,9 +43,16 @@ return(
       style={{width: "100%", height: 1000, display:"flex", justifyContent: "center"}}
       mapStyle= "mapbox://styles/jwu52/cl01xl7pi001515r3tb6zdpl9"
     >
-        <Marker longitude={-74.0060} latitude= {40.7128}>
-                <img src= {fishicon} alt="icon" style={{height: "50px", width: "50px"}}/>
+        <Marker longitude={-74.0060} latitude= {40.7128} draggable={true}>
+                <img src= {birdicon} alt="icon" style={{height: "50px", width: "50px"}}/>
         </Marker>
+        
+      <Popup longitude={-74.0060} latitude={40.7128}
+        anchor="bottom"
+        you are here HELLO
+        >
+      </Popup>
+
     </Maps>
     </MapProvider>
 
