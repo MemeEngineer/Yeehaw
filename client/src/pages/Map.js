@@ -5,18 +5,21 @@ import fishicon from "./fishicon.png";
 import birdicon from "./birdicon.png";
 import deericon from "./deericon.png";
 import biggameicon from "./biggameicon.png";
+import Pins from "./Pins";
+
+
 //import type {MarkerDragEvent, LngLat} from 'react-map-gl';
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoiand1NTIiLCJhIjoiY2t6eG16ajByMDE1eDJ2cGFlenliY3h4cCJ9.5EsnKD5hXlOEWUI6A5V4XQ'
 
-const Map = () => {
+const Map = ({pins}) => {
 //  const [view , setView]= useState("", "")
 
 //  function handleClick(e){
 //   console.log(e.target.value);
 // }
-
-
+// console.log(pins[0])
+// console.log(pins[0].icon.replace(/[!@#$%^&*]/g, ""))
 return(
     <MapProvider>
       <div style={{display: "flex", justifyContent: "center"}}>
@@ -30,22 +33,22 @@ return(
       Bird
       </button>
       <button>
-      <img src={deericon} alt="deer" style={{height: "75px", width: "75px"}}/>
+      <img src={deericon} alt="deer" style={{height: "50px", width: "50px"}}/>
       Deer
       </button>
       <button>
       <img src={biggameicon} alt="biggame" style={{height: "50px", width: "50px"}}/>
       Big Game
       </button>
-      
       </div>
+      
 <Maps
       initialViewState={{
         longitude: -74.0060,
          latitude: 40.7128,
         zoom: 9
       }}
-      style={{width: "100%", height: 1000, display:"flex", justifyContent: "center"}}
+      style={{width: "100%", height: 600, display:"flex", justifyContent: "center"}}
       mapStyle= "mapbox://styles/jwu52/cl01xl7pi001515r3tb6zdpl9"
       // onClick={(e)=>handleClick(e)}
     >
@@ -57,20 +60,22 @@ return(
            latitude={40.7128}
           anchor="bottom"
           draggable={true}
-          onDragStart={0}
-          onDrag={0}
-          onDragEnd={1}
-        ></Marker>
-
+        ></Marker> 
       <Popup longitude={-74.0060} latitude={40.7128}
         anchor="bottom"
         >
           Best Fishing
       </Popup>
-
+      {pins.map((pin) => (
+        <MapProvider>
+      <Marker key={pin.id} longitude={pin.longitude} latitude={pin.latitude} draggable={true}>
+        <img src={pin.icon} alt='pin' style={{height: "50px", width: "50px"}}/>
+      </Marker>
+      <Popup  longitude={pin.longitude} latitude={pin.latitude} anchor="bottom"> {pin.description}</Popup>
+      
+      </MapProvider>))}
     </Maps>
     </MapProvider>
-
 )
 }
   

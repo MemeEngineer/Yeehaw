@@ -29,6 +29,8 @@ input.placeholder {
   justify-content: center;
 }
 
+
+
 select{
   display: flex;
   justify-content: center;
@@ -36,3 +38,16 @@ select{
   align-items: center;
 }
 
+h1{
+  display: flex;
+  justify-content: center;
+  font-size: 100px;
+  font-weight: bold;
+  color: red;
+}
+
+input.forminput{
+  display: "flex";
+  justify-content: "center";
+  align-items: center;
+}
