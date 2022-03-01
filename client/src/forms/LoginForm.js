@@ -38,9 +38,10 @@ const LoginForm = () => {
   }
 
   return (
-    <>
-      <h1>Please Log In</h1>
-      <form onSubmit={handleSubmit}>
+    <div style={{display: "flex", justifyContent: "center"}}>
+      <div>
+      <h1>Yeehaw!</h1>
+      <form onSubmit={handleSubmit} style={{display: "inline-block", justifyContent: "center", alignItems: "center"}}>
         <label htmlFor="username">Username: </label>
         <input
           id="username-input"
@@ -69,7 +70,8 @@ const LoginForm = () => {
       <Link to="/signup" replace>
         Don't have an account? Sign Up!
       </Link>
-    </>
+      </div>
+    </div>
   );
 };
 
