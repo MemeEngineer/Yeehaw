@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: lightblue;
 }
 
 code {
@@ -47,6 +48,18 @@ h1{
 }
 
 input.forminput{
+  display: "flex";
+  justify-content: "center";
+  align-items: center;
+}
+
+.pin-output{
+display: "flex";
+justify-content: "center";
+align-items: center;
+}
+
+input#username-signup-input{
   display: "flex";
   justify-content: "center";
   align-items: center;

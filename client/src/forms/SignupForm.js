@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import YeehawOG from './YeehawOG.png';
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
@@ -39,8 +40,12 @@ const SignupForm = () => {
   }
 
   return (
-    <>
-      <h1>Signup Here!</h1>
+    
+    <div>
+    <div style={{display:"flex", justifyContent: "center",flexDirection:"column", alignItems:"center"}}>
+    <img src={YeehawOG} alt='Yeehaw' style={{display:"flex", justifyContent: "center", alignItems:"center",height:"300px", width:"300px"}}/>
+      <h2>Signup Here!</h2>
+      <div >
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username: </label>
         <input
@@ -49,6 +54,7 @@ const SignupForm = () => {
           name="username"
           value={formData.username}
           onChange={handleChange}
+          
         />
         <br />
         <br />
@@ -72,12 +78,16 @@ const SignupForm = () => {
         />
         <br />
         <br />
-        <button type="submit">Submit</button>
+        <button type="submit" style={{display: "flex", justifyContent: "center", width: "175px"}}>Submit</button>
       </form>
-      <Link to="/" replace>
+      </div>
+      <br/>
+      <Link to="/" replace style={{display: "flex", justifyContent: "center"}}>
         Have an account already? Log in!
       </Link>
-    </>
+      </div>
+      </div>
+    
   );
 };
 

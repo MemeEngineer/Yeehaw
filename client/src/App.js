@@ -23,7 +23,7 @@ const App = () => {
   //Fetches Pin data 
 
       useEffect(() => {
-        fetch(`/getpin`)
+        fetch(`/pins`)
       .then((response) => response.json())
       .then((data) => setPins(data));
       }, []);
@@ -31,7 +31,7 @@ const App = () => {
       //Adding new pin from Form
   const uploadPin = (formData) => {
     console.log(formData);
-    fetch(`/makepin`, {
+    fetch(`/pins`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -41,7 +41,17 @@ const App = () => {
       .then((response) => response.json())
       .then((newPin) => setPins([...pins, newPin]));
   };
-  console.log(pins)
+  // console.log(pins)
+
+//Deleting pin
+  function handleDeleteClick(e) {
+    fetch(`/pins/${e}`, {
+    method: "DELETE",
+  })
+     .then(setPins(pins.filter((pin) => pin.id !== e)));
+  }
+  
+
   // if (!isAuthenticated) {
   //   return <LoggedIn/>
   // }
@@ -49,7 +59,7 @@ const App = () => {
   return (
     <div className="app">
 
-      {currentUser ? <LoggedIn setCurrentUser={setCurrentUser} currentUser={currentUser} pins={pins} uploadPin= {uploadPin}/> : <LoggedOut  />}
+      {currentUser ? <LoggedIn setCurrentUser={setCurrentUser} currentUser={currentUser} pins={pins} uploadPin= {uploadPin} handleDeleteClick={handleDeleteClick}/> : <LoggedOut  />}
     </div>
   );
 };
