@@ -44,11 +44,12 @@ const App = () => {
   // console.log(pins)
 
 //Deleting pin
-  function handleDeleteClick(e) {
-    fetch(`/pins/${e}`, {
+  function handleDeleteClick(id) {
+  
+    fetch(`/pins/${id}`, {
     method: "DELETE",
   })
-     .then(setPins(pins.filter((pin) => pin.id !== e)));
+     .then(setPins(pins.filter((pin) => pin.id !== parseInt(id))));
   }
   
 

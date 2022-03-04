@@ -6,8 +6,9 @@ class PinsController < ApplicationController
     end
 
     def create
-        pin = Pin.create(pin_params)
-    if pin.valid?
+        pin = Pin.new(pin_params)
+        
+    if pin.save
         render json: pin, status: :created
     else
         render json: { error: pin.errors.full_messages}, status: :unprocessable_entity
