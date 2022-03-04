@@ -14,8 +14,8 @@ get '/me', to: "users#show"
 post "/login", to: "sessions#create"
 delete "/logout", to: "sessions#destroy"
 
-get '/getpin', to: "pins#index"
-post '/makepin', to: "pins#create"
-delete '/destroypin', to: "pins#destroy"
+# get '/getpin', to: "pins#index"
+# post '/makepin', to: "pins#create"
+# delete '/destroypin', to: "pins#destroy"
 
 end

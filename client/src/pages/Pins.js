@@ -4,13 +4,8 @@ import deericon from "./deericon.png";
 import biggameicon from "./biggameicon.png";
 import React, { useState } from "react";
 
-const Pins = ({pins, uploadPin, currentUser}) => {
-  const [long, setLong]=useState("");
-  const [lat, setLat]=useState("");
-  const [desc, setDesc]=useState("");
-  const [icons,setIcon]=useState("");
+const Pins = ({pins, uploadPin, currentUser, handleDeleteClick}) => {
 
-    
   const [formData, setFormData] = useState({
     user_id: currentUser.id,
     longitude: 0.000,
@@ -29,6 +24,14 @@ const Pins = ({pins, uploadPin, currentUser}) => {
     uploadPin(formData);
     e.target.reset();
   };
+
+function handleDelete(e){
+  // const click = e.target.value
+// const selectPin = pins.filter((pin) => pin.id !== e.target.value);
+// handleDeleteClick(selectPin);
+console.log(e.target.value);
+handleDeleteClick(e.target.value);
+}
 
   
   return (
@@ -60,9 +63,9 @@ const Pins = ({pins, uploadPin, currentUser}) => {
           alignItems: "center",
         }}>
               {pins.map((pin) => (
-                <div>
-                  <p>{pin.id}</p>
-                  <h3>Current pins</h3>
+                <div className= "Pin-output">
+                  <h3> Pin #{pin.id} <button value={pin.id} onClick={handleDelete}>X</button></h3> 
+                  
                   <p>Longitude: {pin.longitude}</p>
                   <p>Latitude: {pin.latitude}</p>
                   <p>Description: {pin.description}</p>
@@ -110,21 +113,11 @@ const Pins = ({pins, uploadPin, currentUser}) => {
               <div style={{display:"flex", alignItems: "center", justifyContent: "center", flexWrap: "column", flexDirection:"column"}}>
                 <label>Icon </label>
                 <select name="icon"  onChange={handleChange}>
-                <option name="icon" value="https://cdn-images-1.medium.com/max/1200/1*0IHgbmT-9k_z-V5ZN1qV6A.png"  >Fish</option>
+                <option name="icon" value="https://cdn-images-1.medium.com/max/1200/1*0IHgbmT-9k_z-V5ZN1qV6A.png" >Fish</option>
                 <option name="icon" value="https://cdn-images-1.medium.com/max/800/1*0sKQ6aSWNyzlhXr3VpjubQ.png" >Deer</option>
                 <option name="icon" value="https://cdn-images-1.medium.com/max/1200/1*sfWjTld683Ox4NcySVxtfA.png" >Bird</option>
                 <option name="icon" value="https://cdn-images-1.medium.com/max/1200/1*-VXfpshznOJCgb90pFcmSA.png">Big Game</option>
                </select> 
-               {/* <div>
-                <label>Icon</label>
-                <input
-                  type="text"
-                  name="icon"
-                  placeholder="icon"
-                  className="forminput"
-                  onChange={handleChange}
-                />
-              </div> */}
         </div>
         <button className="button" type="submit" style={{display: "flex", padding: "50px", margin: "5px", justifyContent: "center", alignItems: "center", alignText: "center"}}>
               Add Pin

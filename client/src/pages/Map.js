@@ -5,10 +5,7 @@ import fishicon from "./fishicon.png";
 import birdicon from "./birdicon.png";
 import deericon from "./deericon.png";
 import biggameicon from "./biggameicon.png";
-import Pins from "./Pins";
-
-
-//import type {MarkerDragEvent, LngLat} from 'react-map-gl';
+// import type {MarkerDragEvent, LngLat} from 'react-map-gl';
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoiand1NTIiLCJhIjoiY2t6eG16ajByMDE1eDJ2cGFlenliY3h4cCJ9.5EsnKD5hXlOEWUI6A5V4XQ'
 
@@ -52,7 +49,7 @@ return(
       mapStyle= "mapbox://styles/jwu52/cl01xl7pi001515r3tb6zdpl9"
       // onClick={(e)=>handleClick(e)}
     >
-        <Marker longitude={-74.0060} latitude= {40.7128} draggable={true}>
+        <Marker longitude={-74.0060} latitude= {40.7128} draggable={true} dragstart={true}>
                 <img src= {birdicon} alt="icon" style={{height: "50px", width: "50px"}}/>
         </Marker>
         <Marker
@@ -71,9 +68,10 @@ return(
       <Marker key={pin.id} longitude={pin.longitude} latitude={pin.latitude} draggable={true}>
         <img src={pin.icon} alt='pin' style={{height: "50px", width: "50px"}}/>
       </Marker>
-      <Popup  longitude={pin.longitude} latitude={pin.latitude} anchor="bottom"> {pin.description}</Popup>
-      
+      <Popup  longitude={pin.longitude} latitude={pin.latitude} anchor="bottom" closeOnClick={false} > {pin.description}</Popup>
+  
       </MapProvider>))}
+      
     </Maps>
     </MapProvider>
 )

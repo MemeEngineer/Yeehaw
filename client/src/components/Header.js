@@ -1,9 +1,16 @@
+import Yeehaw from "./Yeehaw.gif";
 const Header = ({currentUser}) => {
     return(
-      <div style= {{display: 'flex', justifyContent: 'space-between', margin: "10px"}}>
-      <h2>Welcome to Yeehaw!</h2> 
-      <h2>Howdy partner, {currentUser.username}</h2>
+      <>
+      {/* style= {{display: 'flex', justifyContent: 'space-between' ,height: "800px", backgroundImage: `url(${Yeehaw})`, backgroundPosition: "center", backgroundRepeat: "no-repeat", 
+      backgroundSize: "cover" }} */}
+      <div >
+         <img src={Yeehaw} alt="Yeehaw" style={{width:'100%', height:"300px"}}/> 
       </div>
+      <div>
+        <h2 style={{ display: "flex", justifyContent: "center"}}>Howdy Partner {currentUser.username}!</h2>
+      </div>
+      </>
     ) 
   };
   

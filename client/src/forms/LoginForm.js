@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import Yeehaw from "./Yeehaw.gif";
 const LoginForm = () => {
   const [formData, setFormData] = useState({
     username: "",
@@ -38,9 +38,10 @@ const LoginForm = () => {
   }
 
   return (
-    <div style={{display: "flex", justifyContent: "center"}}>
-      <div>
-      <h1>Yeehaw!</h1>
+    <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column"}}>
+      <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column"}}>
+        <img src={Yeehaw} alt="Yeehaw" style={{display: "flex", justifyContent: "center", height: "300px", width:"100%"}}/>
+      
       <form onSubmit={handleSubmit} style={{display: "inline-block", justifyContent: "center", alignItems: "center"}}>
         <label htmlFor="username">Username: </label>
         <input
@@ -62,7 +63,7 @@ const LoginForm = () => {
         />
         <br />
         <br />
-        <button type="submit">Submit</button>
+        <button type="submit" style={{display: "flex", justifyContent: "center", alignItems: "center", width:"175px"}}>Submit</button>
       </form>
       <br />
       <br />
