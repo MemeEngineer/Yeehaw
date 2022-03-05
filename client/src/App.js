@@ -30,7 +30,7 @@ const App = () => {
  
       //Adding new pin from Form
   const uploadPin = (formData) => {
-    console.log(formData);
+    
     fetch(`/pins`, {
       method: "POST",
       headers: {

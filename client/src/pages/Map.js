@@ -8,10 +8,15 @@ import biggameicon from "./biggameicon.png";
 // import type {MarkerDragEvent, LngLat} from 'react-map-gl';
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoiand1NTIiLCJhIjoiY2t6eG16ajByMDE1eDJ2cGFlenliY3h4cCJ9.5EsnKD5hXlOEWUI6A5V4XQ'
-
+// const ne = new mapboxgl.LngLat(-73.9397, 40.8002);
+// console.log(ne.lng);
 const Map = ({pins}) => {
-//  const [view , setView]= useState("", "")
+const [mouse, setMouse]= useState({
+  longitude: 0,
+  latitude: 0,
+})
 
+function handleMouseMove(e) {setMouse({longitude: e.lng, latitude: e.lat}); }
 //  function handleClick(e){
 //   console.log(e.target.value);
 // }
@@ -38,7 +43,8 @@ return(
       Big Game
       </button>
       </div>
-      
+       <div style={{display:"flex", justifyContent: "center", backgroundColor: "white", }}>Longitude: {mouse.longitude}</div> 
+       <div style={{display:"flex", justifyContent: "center", backgroundColor: "white", }}>Latitude:  {mouse.latitude}</div> 
 <Maps
       initialViewState={{
         longitude: -74.0060,
@@ -48,7 +54,9 @@ return(
       style={{width: "100%", height: 600, display:"flex", justifyContent: "center"}}
       mapStyle= "mapbox://styles/jwu52/cl01xl7pi001515r3tb6zdpl9"
       // onClick={(e)=>handleClick(e)}
+      onMouseMove={(e)=>handleMouseMove(e.lngLat)}
     >
+    
         <Marker longitude={-74.0060} latitude= {40.7128} draggable={true} dragstart={true}>
                 <img src= {birdicon} alt="icon" style={{height: "50px", width: "50px"}}/>
         </Marker>
@@ -71,7 +79,7 @@ return(
       <Popup  longitude={pin.longitude} latitude={pin.latitude} anchor="bottom" closeOnClick={false} > {pin.description}</Popup>
   
       </MapProvider>))}
-      
+ 
     </Maps>
     </MapProvider>
 )

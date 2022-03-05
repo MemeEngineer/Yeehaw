@@ -11,7 +11,7 @@ const Pins = ({pins, uploadPin, currentUser, handleDeleteClick}) => {
     longitude: 0.000,
     latitude: 0.000,
     description: "",
-    icon: "",
+    icon: "https://cdn-images-1.medium.com/max/1200/1*0IHgbmT-9k_z-V5ZN1qV6A.png",
   });
 
   const handleChange = (e) => {
@@ -20,7 +20,6 @@ const Pins = ({pins, uploadPin, currentUser, handleDeleteClick}) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log("onSubmit triggered");
     uploadPin(formData);
     e.target.reset();
   };
@@ -29,7 +28,7 @@ function handleDelete(e){
   // const click = e.target.value
 // const selectPin = pins.filter((pin) => pin.id !== e.target.value);
 // handleDeleteClick(selectPin);
-console.log(e.target.value);
+// console.log(e.target.value);
 handleDeleteClick(e.target.value);
 }
 
@@ -80,7 +79,7 @@ handleDeleteClick(e.target.value);
                 <label>Longitude </label>
                 <input
                   type="number"
-                  step="0.001"
+                  step="0.0000001"
                   name="longitude"
                   placeholder="longitude"
                   className="forminput"
@@ -92,7 +91,7 @@ handleDeleteClick(e.target.value);
                 <label>Latitude </label>
                 <input
                   type="number"
-                  step="0.001"
+                  step="0.0000001"
                   name="latitude"
                   placeholder="latitude"
                   className="forminput"
