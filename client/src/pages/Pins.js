@@ -3,6 +3,11 @@ import birdicon from "./birdicon.png";
 import deericon from "./deericon.png";
 import biggameicon from "./biggameicon.png";
 import React, { useState } from "react";
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import Container from '@mui/material/Container';
+
+
 
 const Pins = ({pins, uploadPin, currentUser, handleDeleteClick}) => {
 
@@ -13,6 +18,7 @@ const Pins = ({pins, uploadPin, currentUser, handleDeleteClick}) => {
     description: "",
     icon: "https://cdn-images-1.medium.com/max/1200/1*0IHgbmT-9k_z-V5ZN1qV6A.png",
   });
+
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -25,52 +31,59 @@ const Pins = ({pins, uploadPin, currentUser, handleDeleteClick}) => {
   };
 
 function handleDelete(e){
-  // const click = e.target.value
-// const selectPin = pins.filter((pin) => pin.id !== e.target.value);
-// handleDeleteClick(selectPin);
-// console.log(e.target.value);
 handleDeleteClick(e.target.value);
 }
+
 
   
   return (
       <div>
+        
         <div style={{display: "flex", justifyContent: "center"}}>
         
-        <button>
+        <Button variant="contained" >
         <img src={fishicon} alt="fish" style={{height: "50px", width: "50px"}}/>
-        Fish
-        </button>
-        <button>
+          Fish
+        </Button>
+        
+        <Button variant="contained" color="inherit" >
         <img src={birdicon} alt="bird" style={{height: "50px", width: "50px"}}/>
         Bird
-        </button>
-        <button>
-        <img src={deericon} alt="deer" style={{height: "75px", width: "75px"}}/>
+        </Button>
+        <Button variant="contained" color="success">
+        <img src={deericon} alt="deer" style={{height: "50px", width: "50px"}}/>
         Deer
-        </button>
-        <button>
+        </Button>
+      
+        <Button variant="contained" color="warning" >
         <img src={biggameicon} alt="biggame" style={{height: "50px", width: "50px"}}/>
         Big Game
-        </button>
+        </Button>
+       
         </div>
-        <div style={{
+        
+
+        <Container style={{
           display: "flex",
           flexWrap: "wrap",
           flexDirection: "row",
-          justifyContent: "space-evenly",
+          justifyContent: "space-between",
           alignItems: "center",
-        }}>
+          marginTop: "10px",
+        }}
+        fixed>
               {pins.map((pin) => (
-                <div className= "Pin-output">
-                  <h3> Pin #{pin.id} <button value={pin.id} onClick={handleDelete}>X</button></h3> 
-                  
-                  <p>Longitude: {pin.longitude}</p>
-                  <p>Latitude: {pin.latitude}</p>
-                  <p>Description: {pin.description}</p>
-                </div>
+                
+                <Card className= "Pin-output" style={{padding:"10px", margin: "5px"}}>
+                  <h3 style={{display:"flex", justifyContent: "space-evenly"}}> Pin #{pin.id} <Button variant="outlined" style={{backgroundColor:"black"}} value={pin.id} onClick={handleDelete}>❌</Button></h3> 
+                  <hr/>
+                  <p><span style={{fontWeight:"bold"}}>Longitude:</span> {pin.longitude}</p>
+                  <p><span style={{fontWeight:"bold"}}>Latitude:</span> {pin.latitude}</p>
+                  <p><span style={{fontWeight:"bold"}}>Description:</span> {pin.description}</p>
+                </Card>
+                
               ))}
-              </div>
+              </Container>
 
         <form style={{ display: "flex", justifyContent: "center", alignItems: "center"}} onSubmit={onSubmit}>
             <div>
@@ -118,9 +131,9 @@ handleDeleteClick(e.target.value);
                 <option name="icon" value="https://cdn-images-1.medium.com/max/1200/1*-VXfpshznOJCgb90pFcmSA.png">Big Game</option>
                </select> 
         </div>
-        <button className="button" type="submit" style={{display: "flex", padding: "50px", margin: "5px", justifyContent: "center", alignItems: "center", alignText: "center"}}>
+        <Button variant="contained" color="info" className="button" type="submit" style={{display: "flex", padding: "50px", margin: "5px", justifyContent: "center", alignItems: "center", alignText: "center"}}>
               Add Pin
-            </button>
+            </Button>
             </div>
           </form>
       </div>

@@ -5,10 +5,13 @@ import fishicon from "./fishicon.png";
 import birdicon from "./birdicon.png";
 import deericon from "./deericon.png";
 import biggameicon from "./biggameicon.png";
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
 
 
-mapboxgl.accessToken = 'pk.eyJ1Ijoiand1NTIiLCJhIjoiY2t6eG16ajByMDE1eDJ2cGFlenliY3h4cCJ9.5EsnKD5hXlOEWUI6A5V4XQ'
-
+ mapboxgl.accessToken= `${process.env.REACT_APP_API_KEY}`
+ 
 const Map = ({pins}) => {
 const [mouse, setMouse]= useState({
   longitude: 0,
@@ -21,25 +24,30 @@ return(
     <MapProvider>
       <div style={{display: "flex", justifyContent: "center"}}>
         
-      <button>
-      <img src={fishicon} alt="fish" style={{height: "50px", width: "50px"}}/>
-      Fish
-      </button>
-      <button>
-      <img src={birdicon} alt="bird" style={{height: "50px", width: "50px"}}/>
-      Bird
-      </button>
-      <button>
-      <img src={deericon} alt="deer" style={{height: "50px", width: "50px"}}/>
-      Deer
-      </button>
-      <button>
-      <img src={biggameicon} alt="biggame" style={{height: "50px", width: "50px"}}/>
-      Big Game
-      </button>
-      </div>
-       <div style={{display:"flex", justifyContent: "center", backgroundColor: "white", }}>Longitude: {mouse.longitude}</div> 
-       <div style={{display:"flex", justifyContent: "center", backgroundColor: "white", }}>Latitude:  {mouse.latitude}</div> 
+      <Button variant="contained" >
+        <img src={fishicon} alt="fish" style={{height: "50px", width: "50px"}}/>
+          Fish
+        </Button>
+        
+        <Button variant="contained" color="inherit" >
+        <img src={birdicon} alt="bird" style={{height: "50px", width: "50px"}}/>
+        Bird
+        </Button>
+        <Button variant="contained" color="success">
+        <img src={deericon} alt="deer" style={{height: "50px", width: "50px"}}/>
+        Deer
+        </Button>
+      
+        <Button variant="contained" color="warning" >
+        <img src={biggameicon} alt="biggame" style={{height: "50px", width: "50px"}}/>
+        Big Game
+        </Button>
+       </div>
+
+      <Container fixed maxWidth="sm" style={{marginTop: "10px"}}>
+       <Box style={{display:"flex", justifyContent: "center", backgroundColor: "white", }}><span style={{fontWeight:"bold", marginRight: "10px"}}>Longitude: </span>   {mouse.longitude}</Box> 
+       <Box style={{display:"flex", justifyContent: "center", backgroundColor: "white", }}><span style={{fontWeight:"bold", marginRight: "10px"}}>Latitude: </span>   {mouse.latitude}</Box> 
+       </Container>
 <Maps
       initialViewState={{
         longitude: -74.0060,

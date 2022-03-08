@@ -30,3 +30,6 @@ server/tmp/storage/*
 
 # Ignore master key for decrypting credentials and more.
 server/config/master.key
+
+# api keys
+.env      
