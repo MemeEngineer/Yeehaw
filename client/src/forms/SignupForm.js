@@ -53,6 +53,7 @@ const SignupForm = () => {
           type="text"
           name="username"
           value={formData.username}
+          required
           onChange={handleChange}
           
         />
@@ -64,6 +65,7 @@ const SignupForm = () => {
           type="text"
           name="email"
           value={formData.email}
+          required
           onChange={handleChange}
         />
         <br />
@@ -74,6 +76,7 @@ const SignupForm = () => {
           type="password"
           name="password"
           value={formData.password}
+          required
           onChange={handleChange}
         />
         <br />
