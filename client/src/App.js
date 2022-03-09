@@ -7,6 +7,7 @@ const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [pins, setPins] = useState([]);
+  const [search, setSearch] = useState("");
 
   //Fetches the users for authenticated users
   useEffect(() => {
@@ -60,7 +61,7 @@ const App = () => {
   return (
     <div className="app">
 
-      {currentUser ? <LoggedIn setCurrentUser={setCurrentUser} currentUser={currentUser} pins={pins} uploadPin= {uploadPin} handleDeleteClick={handleDeleteClick}/> : <LoggedOut  />}
+      {currentUser ? <LoggedIn setCurrentUser={setCurrentUser} currentUser={currentUser} pins={pins} uploadPin= {uploadPin} handleDeleteClick={handleDeleteClick} search={search} setSearch={setSearch}/> : <LoggedOut  />}
     </div>
   );
 };

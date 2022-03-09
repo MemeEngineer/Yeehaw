@@ -12,7 +12,7 @@ import Container from '@mui/material/Container';
 
  mapboxgl.accessToken= `${process.env.REACT_APP_API_KEY}`
  
-const Map = ({pins}) => {
+const Map = ({pins, search}) => {
 const [mouse, setMouse]= useState({
   longitude: 0,
   latitude: 0,
@@ -20,6 +20,7 @@ const [mouse, setMouse]= useState({
 
 function handleMouseMove(e) {setMouse({longitude: e.lng, latitude: e.lat}); }
 
+const filter = pins.filter((pin) => pin.description.toLowerCase().includes(search.toLowerCase()));
 return(
     <MapProvider>
       <div style={{display: "flex", justifyContent: "center"}}>
@@ -59,22 +60,15 @@ return(
       
       onMouseMove={(e)=>handleMouseMove(e.lngLat)}
     >
-    
-        <Marker longitude={-74.0060} latitude= {40.7128} draggable={true} dragstart={true}>
-                <img src= {birdicon} alt="icon" style={{height: "50px", width: "50px"}}/>
-        </Marker>
+      
         <Marker
            longitude={-74.0060}
            latitude={40.7128}
           anchor="bottom"
           draggable={true}
         ></Marker> 
-      <Popup longitude={-74.0060} latitude={40.7128}
-        anchor="bottom"
-        >
-          Best Fishing
-      </Popup>
-      {pins.map((pin) => (
+     
+      {filter.map((pin) => (
         <MapProvider>
       <Marker key={pin.id} longitude={pin.longitude} latitude={pin.latitude} draggable={true}>
         <img src={pin.icon} alt='pin' style={{height: "50px", width: "50px"}}/>

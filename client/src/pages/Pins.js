@@ -9,7 +9,7 @@ import Container from '@mui/material/Container';
 
 
 
-const Pins = ({pins, uploadPin, currentUser, handleDeleteClick}) => {
+const Pins = ({pins, uploadPin, currentUser, handleDeleteClick, search}) => {
 
   const [formData, setFormData] = useState({
     user_id: currentUser.id,
@@ -34,7 +34,7 @@ function handleDelete(e){
 handleDeleteClick(e.target.value);
 }
 
-
+const filter = pins.filter((pin) => pin.description.toLowerCase().includes(search.toLowerCase()));
   
   return (
       <div>
@@ -72,7 +72,7 @@ handleDeleteClick(e.target.value);
           marginTop: "10px",
         }}
         fixed>
-              {pins.map((pin) => (
+              {filter.map((pin) => (
                 
                 <Card className= "Pin-output" style={{padding:"10px", margin: "5px"}}>
                   <h3 style={{display:"flex", justifyContent: "space-evenly"}}> Pin #{pin.id} <Button variant="outlined" style={{backgroundColor:"black"}} value={pin.id} onClick={handleDelete}>❌</Button></h3> 
