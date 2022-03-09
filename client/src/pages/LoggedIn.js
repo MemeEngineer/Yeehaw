@@ -15,7 +15,7 @@ const LoggedIn = ({setCurrentUser, currentUser, pins, uploadPin, handleDeleteCli
     <Routes>
     {/* <Route path="/" element={<Navigate to="/map"/>}/>  */}
     <Route  path="/pins" element={<Pins pins={pins} uploadPin= {uploadPin} currentUser={currentUser} handleDeleteClick={handleDeleteClick} search={search}/>} />
-    <Route  path="/map" element={<Map pins={pins} search={search}/>} />
+    <Route  path="/map" element={<Map pins={pins} search={search} uploadPin= {uploadPin} currentUser={currentUser}/>} />
     </Routes>
     </div>
   );
