@@ -9,14 +9,15 @@ import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
+
+
 
 const Pins = ({pins, uploadPin, currentUser, handleDeleteClick, search}) => {
 
   const [formData, setFormData] = useState({
     user_id: currentUser.id,
-    longitude: 0.000,
-    latitude: 0.000,
+    longitude: 0.0000,
+    latitude: 0.0000,
     description: "",
     icon: "https://cdn-images-1.medium.com/max/1200/1*0IHgbmT-9k_z-V5ZN1qV6A.png",
   });
@@ -69,14 +70,14 @@ const filter = pins.filter((pin) => pin.description.toLowerCase().includes(searc
           display: "flex",
           flexWrap: "wrap",
           flexDirection: "row",
-          justifyContent: "space-between",
+          justifyContent: "space-evenly",
           alignItems: "center",
           marginTop: "10px",
         }}
         fixed>
               {filter.map((pin) => (
                 
-                <Card className= "Pin-output" style={{padding:"10px", margin: "5px"}}>
+                <Card key={pin.id} className= "Pin-output" style={{padding:"10px", margin: "5px"}}>
                   <h3 style={{display:"flex", justifyContent: "space-evenly"}}> Pin #{pin.id} <Button variant="outlined" style={{backgroundColor:"black"}} value={pin.id} onClick={handleDelete}>❌</Button></h3> 
                   <hr/>
                   <p><span style={{fontWeight:"bold"}}>Longitude:</span> {pin.longitude}</p>
@@ -87,62 +88,62 @@ const filter = pins.filter((pin) => pin.description.toLowerCase().includes(searc
               ))}
               </Container>
 <Container>
-        <FormControl fullWidth style={{ display: "flex", justifyContent: "center", alignItems: "center"}} onSubmit={onSubmit}>
+        <form style={{ display: "flex", justifyContent: "center", alignItems: "center"}} onSubmit={onSubmit}>
             <div>
                 <h2 style={{ display: "flex", justifyContent: "center", alignItems: "center"}}>Create Pin</h2>
               <div>
-                
-                <TextField
-                variant="filled"
+                <label>Longitude</label>
+                <input
                   type="number"
-                  step="0.0000001"
+                  step="0.0000000000001"
                   name="longitude"
-                  label="Longitude"
+                  placeholder="Longitude"
                   className="forminput"
-                  style={{backgroundColor: "white"}}
+                  style={{backgroundColor: "white", width: "200px", height:"50px"}}
+                  required
                   onChange={handleChange}
                 />
               </div>
-
+            <label>Latitude</label>
               <div>
-                <TextField
-                variant="filled"
+                <input
                   type="number"
-                  step="0.0000001"
+                  step="0.0000000000001"
                   name="latitude"
-                  label="Latitude"
+                  placeholder="Latitude"
                   className="forminput"
-                  style={{backgroundColor: "white"}}
+                  style={{backgroundColor: "white", width: "200px", height:"50px"}}
+                  required
                   onChange={handleChange}
                 />
               </div>
-
+                <label>Description</label>
               <div>
-                <TextField
-                variant="filled"
+                <input
                   type="text"
                   name="description"
-                  label="Description"
+                  placeholder="Description"
                   className="forminput"
-                  style={{backgroundColor: "white"}}
+                  style={{backgroundColor: "white", width: "200px", height:"50px"}}
                   onChange={handleChange}
+                  required
                 />
               </div>
               <div style={{display:"flex", alignItems: "center", justifyContent: "center", flexWrap: "column", flexDirection:"column"}}>
-                <label style={{fontWeight:"bold"}}>Icon </label>
-                <Select name="icon"  onChange={handleChange} style={{backgroundColor: "white", width:"50%"}}>
-                <MenuItem name="icon" value="https://cdn-images-1.medium.com/max/1200/1*0IHgbmT-9k_z-V5ZN1qV6A.png" >Fish</MenuItem>
-                <MenuItem name="icon" value="https://cdn-images-1.medium.com/max/800/1*0sKQ6aSWNyzlhXr3VpjubQ.png" >Deer</MenuItem>
-                <MenuItem name="icon" value="https://cdn-images-1.medium.com/max/1200/1*sfWjTld683Ox4NcySVxtfA.png" >Bird</MenuItem>
-                <MenuItem name="icon" value="https://cdn-images-1.medium.com/max/1200/1*-VXfpshznOJCgb90pFcmSA.png">Big Game</MenuItem>
-               </Select> 
+                <label style={{fontWeight:"bold"}} required >Icon </label>
+                <select name="icon"  onChange={handleChange} style={{backgroundColor: "white", width:"50%"}}>
+                <option name="icon" value="https://cdn-images-1.medium.com/max/1200/1*0IHgbmT-9k_z-V5ZN1qV6A.png" >Fish</option>
+                <option name="icon" value="https://cdn-images-1.medium.com/max/800/1*0sKQ6aSWNyzlhXr3VpjubQ.png" >Deer</option>
+                <option name="icon" value="https://cdn-images-1.medium.com/max/1200/1*sfWjTld683Ox4NcySVxtfA.png" >Bird</option>
+                <option name="icon" value="https://cdn-images-1.medium.com/max/1200/1*-VXfpshznOJCgb90pFcmSA.png">Big Game</option>
+               </select> 
 
                <Button variant="contained" color="info" className="button" type="submit" style={{display: "flex", margin: "5px", justifyContent: "center", alignItems: "center", alignText: "center"}}>
               Add Pin
             </Button>
         </div>
             </div>
-          </FormControl>
+          </form>
           </Container>
       </div>
       

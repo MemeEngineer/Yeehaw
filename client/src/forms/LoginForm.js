@@ -50,6 +50,7 @@ const LoginForm = () => {
           name="username"
           value={formData.username}
           onChange={handleChange}
+          required
         />
         <br />
         <br />
@@ -59,6 +60,7 @@ const LoginForm = () => {
           type="password"
           name="password"
           value={formData.password}
+          required
           onChange={handleChange}
         />
         <br />
