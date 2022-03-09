@@ -38,7 +38,7 @@ const Navbar = ({setCurrentUser}) => {
       </NavLink>
       <NavLink
         exact to="/map"
-        exact="true"
+        exact= "true"
         // style={linkStyles}
         style={({ isActive }) => ({
           ...linkStyles,

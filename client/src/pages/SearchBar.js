@@ -1,6 +1,7 @@
 import React from "react";
 import TextField from '@mui/material/TextField';
 
+
 function SearchBar({setSearch}) {
   return (
     <div className="search" style= {{display: 'flex', justifyContent: 'center', margin: '10px'}}>

@@ -6,8 +6,10 @@ import React, { useState } from "react";
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import Container from '@mui/material/Container';
-
-
+import TextField from '@mui/material/TextField';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
 
 const Pins = ({pins, uploadPin, currentUser, handleDeleteClick, search}) => {
 
@@ -84,59 +86,66 @@ const filter = pins.filter((pin) => pin.description.toLowerCase().includes(searc
                 
               ))}
               </Container>
-
-        <form style={{ display: "flex", justifyContent: "center", alignItems: "center"}} onSubmit={onSubmit}>
+<Container>
+        <FormControl fullWidth style={{ display: "flex", justifyContent: "center", alignItems: "center"}} onSubmit={onSubmit}>
             <div>
                 <h2 style={{ display: "flex", justifyContent: "center", alignItems: "center"}}>Create Pin</h2>
               <div>
-                <label>Longitude </label>
-                <input
+                
+                <TextField
+                variant="filled"
                   type="number"
                   step="0.0000001"
                   name="longitude"
-                  placeholder="longitude"
+                  label="Longitude"
                   className="forminput"
+                  style={{backgroundColor: "white"}}
                   onChange={handleChange}
                 />
               </div>
 
               <div>
-                <label>Latitude </label>
-                <input
+                <TextField
+                variant="filled"
                   type="number"
                   step="0.0000001"
                   name="latitude"
-                  placeholder="latitude"
+                  label="Latitude"
                   className="forminput"
+                  style={{backgroundColor: "white"}}
                   onChange={handleChange}
                 />
               </div>
 
               <div>
-                <label>Description</label>
-                <input
+                <TextField
+                variant="filled"
                   type="text"
                   name="description"
-                  placeholder="description"
+                  label="Description"
                   className="forminput"
+                  style={{backgroundColor: "white"}}
                   onChange={handleChange}
                 />
               </div>
               <div style={{display:"flex", alignItems: "center", justifyContent: "center", flexWrap: "column", flexDirection:"column"}}>
-                <label>Icon </label>
-                <select name="icon"  onChange={handleChange}>
-                <option name="icon" value="https://cdn-images-1.medium.com/max/1200/1*0IHgbmT-9k_z-V5ZN1qV6A.png" >Fish</option>
-                <option name="icon" value="https://cdn-images-1.medium.com/max/800/1*0sKQ6aSWNyzlhXr3VpjubQ.png" >Deer</option>
-                <option name="icon" value="https://cdn-images-1.medium.com/max/1200/1*sfWjTld683Ox4NcySVxtfA.png" >Bird</option>
-                <option name="icon" value="https://cdn-images-1.medium.com/max/1200/1*-VXfpshznOJCgb90pFcmSA.png">Big Game</option>
-               </select> 
-        </div>
-        <Button variant="contained" color="info" className="button" type="submit" style={{display: "flex", padding: "50px", margin: "5px", justifyContent: "center", alignItems: "center", alignText: "center"}}>
+                <label style={{fontWeight:"bold"}}>Icon </label>
+                <Select name="icon"  onChange={handleChange} style={{backgroundColor: "white", width:"50%"}}>
+                <MenuItem name="icon" value="https://cdn-images-1.medium.com/max/1200/1*0IHgbmT-9k_z-V5ZN1qV6A.png" >Fish</MenuItem>
+                <MenuItem name="icon" value="https://cdn-images-1.medium.com/max/800/1*0sKQ6aSWNyzlhXr3VpjubQ.png" >Deer</MenuItem>
+                <MenuItem name="icon" value="https://cdn-images-1.medium.com/max/1200/1*sfWjTld683Ox4NcySVxtfA.png" >Bird</MenuItem>
+                <MenuItem name="icon" value="https://cdn-images-1.medium.com/max/1200/1*-VXfpshznOJCgb90pFcmSA.png">Big Game</MenuItem>
+               </Select> 
+
+               <Button variant="contained" color="info" className="button" type="submit" style={{display: "flex", margin: "5px", justifyContent: "center", alignItems: "center", alignText: "center"}}>
               Add Pin
             </Button>
+        </div>
             </div>
-          </form>
+          </FormControl>
+          </Container>
       </div>
+      
     );
   };
   
