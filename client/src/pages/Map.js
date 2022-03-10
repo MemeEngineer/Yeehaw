@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import mapboxgl from 'mapbox-gl';
 import Maps, {MapProvider,Marker, Popup} from 'react-map-gl';
 import fishicon from "./fishicon.png";
@@ -8,7 +8,6 @@ import biggameicon from "./biggameicon.png";
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import TextField from '@mui/material/TextField';
 import Modal from '@mui/material/Modal';
 
 
@@ -40,8 +39,8 @@ function handleMouseDown(e) {setMouse({longitude:parseFloat(e.lng).toFixed(7) , 
 
 const [formData, setFormData] = useState({
   user_id: currentUser.id,
-  longitude: 0.00000000000000,
-  latitude: 0.00000000000000,
+  longitude: mouse.longitude,
+  latitude: mouse.latitude,
   description: "",
   icon: "https://cdn-images-1.medium.com/max/1200/1*0IHgbmT-9k_z-V5ZN1qV6A.png",
 });
@@ -53,10 +52,11 @@ const handleChange = (e) => {
 
 const onSubmit = (e) => {
   e.preventDefault();
-  console.log(formData);
   uploadPin(formData);
   e.target.reset();
 };
+const handleClick = () => {setFormData({...formData,longitude: mouse.longitude, latitude: mouse.latitude});}
+
 
 const filter = pins.filter((pin) => pin.description.toLowerCase().includes(search.toLowerCase()));
 return(
@@ -101,12 +101,12 @@ return(
                   type="text"
                   step="any"
                   name="longitude"
-                  placeholder={mouse.longitude}
+
                   value={mouse.longitude}
                   className="forminput"
                   style={{backgroundColor: "white", width: "200px", height:"50px"}}
                   required
-                  onChange={handleChange}
+                  // onChange={handleChange}
                 />
               </div>
             <label>Latitude</label>
@@ -115,12 +115,12 @@ return(
                   type="text"
                   step="any"
                   name="latitude"
-                  placeholder={mouse.latitude}
+                  
                   value={mouse.latitude}
                   className="forminput"
                   style={{backgroundColor: "white", width: "200px", height:"50px"}}
                   required
-                  onChange={handleChange}
+                  // onChange={handleChange}
                 />
               </div>
                 <label>Description</label>
@@ -144,7 +144,7 @@ return(
                 <option name="icon" value="https://cdn-images-1.medium.com/max/1200/1*-VXfpshznOJCgb90pFcmSA.png">Big Game</option>
                </select> 
 
-               <Button variant="contained" color="info" className="button" type="submit" style={{display: "flex", margin: "5px", justifyContent: "center", alignItems: "center", alignText: "center"}}>
+               <Button variant="contained" color="info" className="button" type="submit" style={{display: "flex", margin: "5px", justifyContent: "center", alignItems: "center", alignText: "center"}} onClick={handleClick}>
               Add Pin
             </Button>
         </div>
@@ -169,18 +169,10 @@ return(
       }}
       style={{width: "100%", height: 600, display:"flex", justifyContent: "center"}}
       mapStyle= "mapbox://styles/jwu52/cl01xl7pi001515r3tb6zdpl9"
-      
-    onMouseDown={(e)=>{ console.log(e)}}
-    // handleMouseDown(e.lngLat);
+      // onMouseDown={(e)=>{handleMouseDown(e.lngLat)}} on click of mouse tracks longitude and latitude
     >
       
-        <Marker
-           longitude={mouse.longitude}
-           latitude={mouse.latitude}
-          anchor="bottom"
-          draggable={true}
-          onDragEnd={(e)=>{handleMouseDown(e.lngLat)}} 
-        ></Marker> 
+        
      
       {filter.map((pin) => (
         <MapProvider>
@@ -190,7 +182,14 @@ return(
       <Popup  longitude={pin.longitude} latitude={pin.latitude} anchor="bottom" closeOnClick={false} > {pin.description}</Popup>
   
       </MapProvider>))}
- 
+      <Marker
+           longitude={mouse.longitude}
+           latitude={mouse.latitude}
+          anchor="bottom"
+          draggable={true}
+          onDragEnd={(e)=>{handleMouseDown(e.lngLat)}} 
+          style={{zIndex:99}}
+        ></Marker> 
     </Maps>
     </MapProvider>
 )

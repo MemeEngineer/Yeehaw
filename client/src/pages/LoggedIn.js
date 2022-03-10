@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Pins from "./Pins";
 import Map from "./Map";
 import {Navigate, Routes, Route } from "react-router-dom";
-import SearchBar from "./SearchBar";
+import SearchBar from "../components/SearchBar";
 
 
 const LoggedIn = ({setCurrentUser, currentUser, pins, uploadPin, handleDeleteClick, search, setSearch }) => {
@@ -15,7 +15,7 @@ const LoggedIn = ({setCurrentUser, currentUser, pins, uploadPin, handleDeleteCli
     <Routes>
     {/* <Route path="/" element={<Navigate to="/map"/>}/>  */}
     <Route  path="/pins" element={<Pins pins={pins} uploadPin= {uploadPin} currentUser={currentUser} handleDeleteClick={handleDeleteClick} search={search}/>} />
-    <Route  path="/map" element={<Map pins={pins} search={search} uploadPin= {uploadPin} currentUser={currentUser}/>} />
+    <Route  path="/map" element={<Map pins={pins} search={search} uploadPin= {uploadPin} currentUser={currentUser} />} />
     </Routes>
     </div>
   );
