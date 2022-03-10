@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {Link} from 'react-router-dom';
 import YeehawOG from './YeehawOG.png';
+import Card from '@mui/material/Card';
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
@@ -41,8 +42,10 @@ const SignupForm = () => {
 
   return (
     
-    <div>
+    <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column"}}>
+      <Card style={{display:"inline-block", justifyContent: "center"}}>
     <div style={{display:"flex", justifyContent: "center",flexDirection:"column", alignItems:"center"}}>
+    
     <img src={YeehawOG} alt='Yeehaw' style={{display:"flex", justifyContent: "center", alignItems:"center",height:"300px", width:"300px"}}/>
       <h2>Signup Here!</h2>
       <div >
@@ -88,7 +91,9 @@ const SignupForm = () => {
       <Link to="/" replace style={{display: "flex", justifyContent: "center"}}>
         Have an account already? Log in!
       </Link>
+      
       </div>
+      </Card>
       </div>
     
   );

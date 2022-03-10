@@ -36,7 +36,6 @@ const [open, setOpen] = useState(false);
 
 function handleMouseDown(e) {setMouse({longitude:parseFloat(e.lng).toFixed(7) , latitude: parseFloat(e.lat).toFixed(7)}); }
 
-
 const [formData, setFormData] = useState({
   user_id: currentUser.id,
   longitude: mouse.longitude,
@@ -169,7 +168,7 @@ return(
       }}
       style={{width: "100%", height: 600, display:"flex", justifyContent: "center"}}
       mapStyle= "mapbox://styles/jwu52/cl01xl7pi001515r3tb6zdpl9"
-      // onMouseDown={(e)=>{handleMouseDown(e.lngLat)}} on click of mouse tracks longitude and latitude
+    //  onMouseDown={(e)=>{handleMouseDown(e.lngLat)}} //on click of mouse tracks longitude and latitude
     >
       
         
