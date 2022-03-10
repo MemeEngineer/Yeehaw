@@ -93,7 +93,7 @@ const filter = pins.filter((pin) => pin.description.toLowerCase().includes(searc
                 <label>Longitude</label>
                 <input
                   type="number"
-                  step="0.0000000000001"
+                  step="0.00000000000001"
                   name="longitude"
                   placeholder="Longitude"
                   className="forminput"
@@ -106,7 +106,7 @@ const filter = pins.filter((pin) => pin.description.toLowerCase().includes(searc
               <div>
                 <input
                   type="number"
-                  step="0.0000000000001"
+                  step="0.00000000000001"
                   name="latitude"
                   placeholder="Latitude"
                   className="forminput"
