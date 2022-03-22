@@ -9,7 +9,7 @@ const About = () => {
         </div>
         <div style={{display:"flex",justifyContent: "center", alignItems: "center", margin: "10px 50px 20px 10px"}} >
             <p><span style={{fontWeight:"bold"}}>How To:</span> Using the default mapbox marker, move the marker where you would like to place a pin and click on the add pin button (add your description and choose from the icon/pin options). </p>
-            <img src="https://docs.mapbox.com/help/assets/how-mapbox-works--markers-generic-thumb-960-012fd8dbcc841508a7d58e29a2dd0b91.webp"/>
+            <img src="https://www.kindpng.com/picc/m/141-1414635_map-marker-png-transparent-png.png" alt="mapbox pin" style={{height:"50px", margin:"10px"}}/>
         </div>
         </div>
     );
