@@ -2,6 +2,7 @@ import Navbar from "../components/NavBar";
 import Header from "../components/Header";
 import Pins from "./Pins";
 import Map from "./Map";
+import About from "./About";
 import {Navigate, Routes, Route } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
 
@@ -16,6 +17,7 @@ const LoggedIn = ({setCurrentUser, currentUser, pins, uploadPin, handleDeleteCli
     {/* <Route path="/" element={<Navigate to="/map"/>}/>  */}
     <Route  path="/pins" element={<Pins pins={pins} uploadPin= {uploadPin} currentUser={currentUser} handleDeleteClick={handleDeleteClick} search={search}/>} />
     <Route  path="/map" element={<Map pins={pins} search={search} uploadPin= {uploadPin} currentUser={currentUser} />} />
+    <Route path="/about" element={<About/>}/>
     </Routes>
     </div>
   );

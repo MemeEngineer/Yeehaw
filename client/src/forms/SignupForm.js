@@ -46,7 +46,7 @@ const SignupForm = () => {
       <Card style={{display:"inline-block", justifyContent: "center"}}>
     <div style={{display:"flex", justifyContent: "center",flexDirection:"column", alignItems:"center"}}>
     
-    <img src={YeehawOG} alt='Yeehaw' style={{display:"flex", justifyContent: "center", alignItems:"center",height:"300px", width:"300px"}}/>
+    <img src={YeehawOG} alt='Yeehaw' style={{display:"flex", justifyContent: "center", alignItems:"center",height:"300px", width:"100%"}}/>
       <h2>Signup Here!</h2>
       <div >
       <form onSubmit={handleSubmit}>
