@@ -25,6 +25,17 @@ const Navbar = ({setCurrentUser}) => {
 
   return (
       <nav style= {{display: 'flex', justifyContent: 'center'}}>
+        <NavLink
+        to="/about"
+        exact = "true"
+        style={({ isActive }) => ({
+          ...linkStyles,
+          background: isActive ? 'Red' : 'Black',
+        })}
+       
+      >
+        About
+      </NavLink>
     <NavLink
         to="/pins"
         exact = "true"
