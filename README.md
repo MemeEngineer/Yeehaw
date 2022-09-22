@@ -2,6 +2,7 @@
 An app for sharing hunting and fishing spots  
 
 <br>
+
 * Integrated Mapbox API for the Map user interface (https://docs.mapbox.com/)
 
 * Authorization and authentication for user login and account creation
