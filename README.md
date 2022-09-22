@@ -28,4 +28,4 @@ sudo service postgresql start
 <br>
 rails server
 
-Demo Link: [https://www.loom.com/share/eb26caf8424a46dbb5ef72b0afc564ca]
+Demo Link: https://www.loom.com/share/eb26caf8424a46dbb5ef72b0afc564ca
