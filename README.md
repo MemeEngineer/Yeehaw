@@ -11,7 +11,8 @@ An app for sharing hunting and fishing spots
 * Programmed in Ruby on Rails (Backend) and React (Frontend), with MaterialUI modal and in-line CSS styling combination
 <br/>
 
-https://user-images.githubusercontent.com/90629466/191636428-2afd5675-45ef-4a92-b0d8-e489adcf249f.mp4
+
+![Yeehaw](https://user-images.githubusercontent.com/90629466/191640762-d17cfe5b-6cd7-4c4a-b6a5-09829d3a9413.gif)
 
 Frontend:
 <br>
@@ -27,6 +28,4 @@ sudo service postgresql start
 <br>
 rails server
 
-Demo Link:
-
-https://www.loom.com/share/eb26caf8424a46dbb5ef72b0afc564ca
+Demo Link: [https://www.loom.com/share/eb26caf8424a46dbb5ef72b0afc564ca]
