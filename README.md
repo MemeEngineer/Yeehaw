@@ -6,7 +6,7 @@ An app for sharing hunting and fishing spots
 
 * Authorization and authentication for user login and account creation
 
-* Customized pin markers for deer, fish, bird or big game hunting & fishing locations
+* Implemented CRUD to allow customized pin markers for deer, fish, bird or big game hunting & fishing locations
 
 * Programmed in Ruby on Rails (Backend) and React (Frontend), with MaterialUI modal and in-line CSS styling combination
 <br/>
