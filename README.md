@@ -1,4 +1,4 @@
-# Yeehaw
+# Yeehaw! Wind, Woods, & Water
 An app for sharing hunting and fishing spots  
 <br>
 
